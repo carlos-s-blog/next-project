@@ -6,22 +6,43 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "pnpm lint:es",
+    "lint:es": "next lint --fix"
   },
   "dependencies": {
+    "next": "14.1.3",
     "react": "^18",
-    "react-dom": "^18",
-    "next": "14.1.3"
+    "react-dom": "^18"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@typescript-eslint/eslint-plugin": "^7.1.1",
+    "@typescript-eslint/parser": "^7.1.1",
     "autoprefixer": "^10.0.1",
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^18.0.0",
+    "eslint-config-next": "14.1.2",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jest": "^27.9.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-unused-imports": "^3.1.0",
     "postcss": "^8",
+    "postcss-import": "^15.1.0",
+    "postcss-mixins": "^9.0.4",
+    "postcss-nested": "^6.0.1",
+    "postcss-nesting": "^11.2.2",
+    "prettier": "^3.2.5",
     "tailwindcss": "^3.3.0",
-    "eslint": "^8",
-    "eslint-config-next": "14.1.3"
+    "typescript": "^5.4.2",
+    "stylelint": "^15.4.0",
+    "stylelint-config-css-modules": "^4.2.0",
+    "stylelint-config-recess-order": "^4.0.0",
+    "stylelint-config-standard": "^32.0.0",
+    "stylelint-prettier": "^3.0.0"
   }
 }

@@ -1,0 +1,7 @@
+.links {
+    @apply flex items-center gap-[10px]
+}
+
+.logout {
+    @apply p-[10px] cursor-pointer
+}

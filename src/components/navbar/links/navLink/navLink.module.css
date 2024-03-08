@@ -1,0 +1,7 @@
+.container {
+    @apply min-w-[100px] p-[10px] rounded-[20px] font-[500] text-center
+}
+
+.active {
+    @apply bg-white text-black
+}

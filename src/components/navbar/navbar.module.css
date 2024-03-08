@@ -1,0 +1,7 @@
+.container {
+    @apply h-[100px] flex items-center justify-between
+}
+
+.logo {
+    @apply font-bold text-[30px]
+}
