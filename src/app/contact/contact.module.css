@@ -1,0 +1,3 @@
+.imageContainer {
+    @apply relative w-full h-[500px]
+}

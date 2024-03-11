@@ -1,0 +1,36 @@
+.container {
+    @apply flex gap-[100px]
+}
+
+.textContainer {
+    @apply flex-1 flex flex-col gap-[50px]
+}
+
+.title {
+    @apply text-[72px]
+}
+
+.desc {
+    @apply text-[20px]
+}
+
+.buttons {
+    @apply flex gap-[20px]
+}
+
+.button {
+    @apply p-[20px] min-w-[120px] cursor-pointer 
+    border-none rounded-[5px] text-[16px]
+}
+
+.button:first-child {
+    @apply bg-blue-600 text-white
+}
+
+.brands {
+    @apply w-[500px] h-[50px] relative grayscale-[1]
+}
+
+.imgContainer {
+    @apply flex-1 relative
+}

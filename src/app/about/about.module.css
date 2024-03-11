@@ -1,0 +1,31 @@
+.container {
+    @apply flex gap-[100px]
+}
+
+.textContainer {
+    @apply flex-1 flex gap-[50px] flex-col
+}
+
+.subTitle {
+    @apply text-blue-500
+}
+
+.title {
+    @apply text-[38px]
+}
+
+.desc {
+    @apply text-[18px] font-[300]
+}
+
+.boxes {
+    @apply flex justify-between items-center
+}
+
+.box {
+    @apply flex flex-col gap-[10px]
+}
+
+.imageContainer {
+    @apply flex-1 relative
+}
