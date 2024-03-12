@@ -1,5 +1,6 @@
 .container {
-    @apply flex justify-between h-[100px] items-center text-gray-500
+    @apply flex justify-between h-[100px] items-center text-gray-500 
+    md:flex-col md:items-center
 }
 
 .logo {

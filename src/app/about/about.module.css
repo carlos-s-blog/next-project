@@ -26,6 +26,14 @@
     @apply flex flex-col gap-[10px]
 }
 
+.box h1 {
+    @apply  text-blue-500
+}
+
 .imageContainer {
     @apply flex-1 relative
+}
+
+.img {
+    @apply object-contain
 }

@@ -1,0 +1,43 @@
+.container {
+    @apply flex gap-[100px]
+}
+
+.imageContainer {
+    @apply  flex-1 relative h-[calc(100vh-200px)] md:hidden
+}
+
+.image {
+    @apply object-cover
+}
+
+.textContainer {
+    @apply flex-2 flex-col gap-[50px] flex
+}
+
+.title {
+    @apply text-[64px]
+}
+
+.detail {
+    @apply flex gap-[20px] 
+}
+
+.detailText {
+    @apply flex flex-col gap-[10px]
+}
+
+.detailTitle {
+    @apply text-gray-400 font-bold
+}
+
+.detailValue {
+    @apply font-[500]
+}
+
+.avatar {
+    @apply rounded-[50%]
+}
+
+.content {
+    @apply text-[20px]
+}

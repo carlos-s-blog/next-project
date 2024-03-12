@@ -4,13 +4,18 @@ import styles from './contact.module.css';
 
 const Contact = () => {
     return (
-        <div>
+        <div className={styles.container}>
             <div className={styles.imageContainer}>
-                <Image
-                    src="https://t7.baidu.com/it/u=1819248061,230866778&fm=193&f=GIF"
-                    alt=""
-                    fill
-                />
+                <Image className={styles.img} src="/contact.png" alt="contact" fill />
+            </div>
+            <div className={styles.formContainer}>
+                <form className={styles.form} action="">
+                    <input type="text" placeholder="Name And Surname" />
+                    <input type="text" placeholder="Email Address" />
+                    <input type="text" placeholder="Phone Number (Optional)" />
+                    <textarea placeholder="Message" name="" id="" cols={30} rows={10} />
+                    <button>Submit</button>
+                </form>
             </div>
         </div>
     );

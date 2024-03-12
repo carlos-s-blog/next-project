@@ -1,3 +1,30 @@
+.container {
+    @apply flex items-center gap-[100px] 
+}
+
+
 .imageContainer {
-    @apply relative w-full h-[500px]
+    @apply flex-1 relative h-[500px] sm:hidden
+}
+
+.img {
+    @apply object-contain 
+}
+
+.formContainer {
+    @apply flex-1
+}
+
+.form {
+    @apply flex flex-col gap-[20px]
+}
+
+.form input,.form textarea {
+    @apply p-[20px] rounded-[5px] border-none outline-none 
+    bg-blend-soft-light text-white
+}
+
+.form button {
+    @apply p-[20px] bg-blue-600 rounded-[5px] border-none text-white
+    font-bold cursor-pointer
 }

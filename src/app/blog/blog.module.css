@@ -1,0 +1,7 @@
+.container {
+    @apply flex flex-wrap gap-[20px]
+}
+
+.post {
+    @apply w-[30%] sm:w-[100%] lg:w-[45%]
+}
