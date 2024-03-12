@@ -5,7 +5,6 @@ module.exports = {
         'stylelint-config-standard',
         'stylelint-config-css-modules',
         'stylelint-config-recess-order',
-        'stylelint-prettier/recommended',
     ],
     rules: {
         'selector-type-no-unknown': null,

@@ -2,7 +2,7 @@
     // 使用eslint+prettier自动格式化
     "editor.formatOnSave": false,
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": "explicit"
+        "source.fixAll.eslint": true
     },
     // 导入模块时默认使用相对于项目的路径
     "javascript.preferences.importModuleSpecifier": "project-relative",
@@ -14,4 +14,7 @@
     "typescript.tsdk": "node_modules/typescript/lib",
     // 默认使用pnpm作为包安装的管理工具
     "npm.packageManager": "pnpm",
+    "css.validate": false,
+    "less.validate": false,
+    "scss.validate": false
 }

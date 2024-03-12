@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "pnpm lint:es",
-    "lint:es": "next lint --fix"
+    "lint:es": "next lint --fix",
+    "lint:style": "stylelint \"**/*.css\" --fix --cache --cache-location node_modules/.cache/stylelint/"
   },
   "dependencies": {
     "next": "14.1.3",
