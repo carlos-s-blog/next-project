@@ -4,30 +4,16 @@ import { FC, Suspense } from 'react';
 
 import PostUser from '@/components/postUser/PostUser';
 
-import { PlaceholderPosts } from '../page';
+import { postApi } from '@/lib/api';
+
+import { SimpleBlogProps } from '@/lib/interface';
 
 import styles from './singlePage.module.css';
-
-interface SimpleBlogProps {
-    params: {
-        slug: string;
-    };
-}
-
-const getData = async (slug: string): Promise<PlaceholderPosts> => {
-    const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`);
-
-    if (!res.ok) {
-        throw new Error('Somethind went weong');
-    }
-
-    return res.json();
-};
 
 const SimpleBlog: FC<SimpleBlogProps> = async ({ params }) => {
     const { slug } = params;
 
-    const post = await getData(slug);
+    const post = await postApi.post(slug);
 
     return (
         <div className={styles.container}>

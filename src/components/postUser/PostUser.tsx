@@ -1,27 +1,11 @@
 import { FC } from 'react';
 
+import { postApi } from '@/lib/api';
+
 import styles from './postUser.module.css';
 
-interface PostUserResponse {
-    id: number;
-    name: string;
-    username: string;
-}
-
-const getData = async (userId: number): Promise<PostUserResponse> => {
-    const res = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`, {
-        cache: 'no-store',
-    });
-
-    if (!res.ok) {
-        throw new Error('Somethind went weong');
-    }
-
-    return res.json();
-};
-
 const PostUser: FC<{ userId: number }> = async ({ userId }) => {
-    const { username } = await getData(userId);
+    const { username } = await postApi.user(userId);
 
     return (
         <div className={styles.container}>

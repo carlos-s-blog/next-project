@@ -4,13 +4,9 @@ import Link from 'next/link';
 
 import { FC } from 'react';
 
-import { PlaceholderPosts } from '@/app/blog/page';
+import { PostCardProps } from 'next-env';
 
 import styles from './postCard.module.css';
-
-interface PostCardProps {
-    post: PlaceholderPosts;
-}
 
 const PostCard: FC<PostCardProps> = ({ post }) => {
     const { title, body } = post;
