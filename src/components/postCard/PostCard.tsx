@@ -2,9 +2,18 @@ import Image from 'next/image';
 
 import Link from 'next/link';
 
+import { FC } from 'react';
+
+import { PlaceholderPosts } from '@/app/blog/page';
+
 import styles from './postCard.module.css';
 
-const PostCard = () => {
+interface PostCardProps {
+    post: PlaceholderPosts;
+}
+
+const PostCard: FC<PostCardProps> = ({ post }) => {
+    const { title, body } = post;
     return (
         <div className={styles.container}>
             <div className={styles.top}>
@@ -20,13 +29,9 @@ const PostCard = () => {
                 <span className={styles.data}>01.01.2024</span>
             </div>
             <div className={styles.bottom}>
-                <h1 className={styles.title}>Title</h1>
-                <p className={styles.desc}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non eos fugit
-                    accusantium quisquam, velit distinctio sapiente blanditiis assumenda suscipit id
-                    quod adipisci consectetur alias itaque. Saepe dolorum qui voluptas recusandae.
-                </p>
-                <Link className={styles.link} href="/blog/post">
+                <h1 className={styles.title}>{title}</h1>
+                <p className={styles.desc}>{body}</p>
+                <Link className={styles.link} href={`blog/${post.id}`}>
                     Read More
                 </Link>
             </div>

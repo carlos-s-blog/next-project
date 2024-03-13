@@ -1,8 +1,34 @@
 import Image from 'next/image';
 
+import { FC, Suspense } from 'react';
+
+import PostUser from '@/components/postUser/PostUser';
+
+import { PlaceholderPosts } from '../page';
+
 import styles from './singlePage.module.css';
 
-const SimpleBlog = () => {
+interface SimpleBlogProps {
+    params: {
+        slug: string;
+    };
+}
+
+const getData = async (slug: string): Promise<PlaceholderPosts> => {
+    const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`);
+
+    if (!res.ok) {
+        throw new Error('Somethind went weong');
+    }
+
+    return res.json();
+};
+
+const SimpleBlog: FC<SimpleBlogProps> = async ({ params }) => {
+    const { slug } = params;
+
+    const post = await getData(slug);
+
     return (
         <div className={styles.container}>
             <div className={styles.imageContainer}>
@@ -15,7 +41,7 @@ const SimpleBlog = () => {
                 />
             </div>
             <div className={styles.textContainer}>
-                <h1 className={styles.title}>Title</h1>
+                <h1 className={styles.title}>{post.title}</h1>
                 <div className={styles.detail}>
                     <Image
                         src="/avatar.jpg"
@@ -24,33 +50,15 @@ const SimpleBlog = () => {
                         height={30}
                         className={styles.avatar}
                     />
-                    <div className={styles.detailText}>
-                        <span className={styles.detailTitle}>Author</span>
-                        <span className={styles.detailValue}>Terry Jefferson</span>
-                    </div>
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <PostUser userId={post.userId} />
+                    </Suspense>
                     <div className={styles.detailText}>
                         <span className={styles.detailTitle}>Date</span>
                         <span className={styles.detailValue}>01.01.2024</span>
                     </div>
                 </div>
-                <div className={styles.content}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui laborum, iure
-                    tenetur itaque alias obcaecati. Asperiores minima sit facilis velit sapiente
-                    labore, doloribus recusandae deserunt suscipit quisquam! Tempora, officia
-                    commodi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui laborum,
-                    iure tenetur itaque alias obcaecati. Asperiores minima sit facilis velit
-                    sapiente labore, doloribus recusandae deserunt suscipit quisquam! Tempora,
-                    officia commodi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
-                    laborum, iure tenetur itaque alias obcaecati. Asperiores minima sit facilis
-                    velit sapiente labore, doloribus recusandae deserunt suscipit quisquam! Tempora,
-                    officia commodi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
-                    laborum, iure tenetur itaque alias obcaecati. Asperiores minima sit facilis
-                    velit sapiente labore, doloribus recusandae deserunt suscipit quisquam! Tempora,
-                    officia commodi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
-                    laborum, iure tenetur itaque alias obcaecati. Asperiores minima sit facilis
-                    velit sapiente labore, doloribus recusandae deserunt suscipit quisquam! Tempora,
-                    officia commodi.
-                </div>
+                <div className={styles.content}>{post.body}</div>
             </div>
         </div>
     );
