@@ -14,7 +14,9 @@ const PostCard: FC<{ post: MongoPost }> = ({ post }) => {
         <div className={styles.container}>
             <div className={styles.top}>
                 <div className={styles.imageContainer}>
-                    <Image className={styles.image} src={post.img} alt="" fill priority />
+                    {post.img && (
+                        <Image className={styles.image} src={post.img} alt="" fill priority />
+                    )}
                 </div>
                 <span className={styles.data}>{createdAt.toDateString().slice(4, 16)}</span>
             </div>

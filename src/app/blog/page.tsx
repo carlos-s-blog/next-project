@@ -1,5 +1,7 @@
 import { FC } from 'react';
 
+import { Metadata } from 'next';
+
 import PostCard from '@/components/postCard/PostCard';
 
 import { postApi } from '@/lib/api';
@@ -9,6 +11,11 @@ import styles from './blog.module.css';
 interface BlogProps {
     searchParams: object;
 }
+
+export const metadata: Metadata = {
+    title: 'Blogs',
+    description: 'next app blog page',
+};
 
 const Blog: FC<BlogProps> = async ({ searchParams }) => {
     const posts = await postApi.posts();

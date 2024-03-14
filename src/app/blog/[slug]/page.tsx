@@ -10,6 +10,17 @@ import { SimpleBlogProps } from '@/lib/interface';
 
 import styles from './singlePage.module.css';
 
+export const generateMetadata = async ({ params }: SimpleBlogProps) => {
+    const { slug } = params;
+
+    const post = await postApi.post(slug);
+
+    return {
+        title: post.title,
+        description: post.desc,
+    };
+};
+
 const SimpleBlog: FC<SimpleBlogProps> = async ({ params }) => {
     const { slug } = params;
 
