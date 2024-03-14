@@ -1,4 +1,4 @@
-import { ConnectionStates } from 'mongoose';
+import { ConnectionStates, Date } from 'mongoose';
 
 export interface MongoConnection {
     isConnection: ConnectionStates;
@@ -11,6 +11,7 @@ export interface MongoUser {
     password: string;
     img: string;
     isAdmin: boolean;
+    createdAt: Date;
 }
 
 export interface MongoPost {
