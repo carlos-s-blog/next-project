@@ -20,3 +20,7 @@ export interface SimpleBlogProps {
         slug: string;
     };
 }
+
+export interface MongoConnection {
+    isConnection: ConnectionStates;
+}

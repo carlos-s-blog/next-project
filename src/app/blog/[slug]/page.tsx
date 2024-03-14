@@ -44,7 +44,7 @@ const SimpleBlog: FC<SimpleBlogProps> = async ({ params }) => {
                         <span className={styles.detailValue}>01.01.2024</span>
                     </div>
                 </div>
-                <div className={styles.content}>{post.body}</div>
+                <div className={styles.content}>{post.desc}</div>
             </div>
         </div>
     );

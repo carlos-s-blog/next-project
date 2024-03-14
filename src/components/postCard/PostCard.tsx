@@ -4,12 +4,12 @@ import Link from 'next/link';
 
 import { FC } from 'react';
 
-import { PostCardProps } from 'next-env';
+import { MongoPost } from '../../lib/mongoInterface';
 
 import styles from './postCard.module.css';
 
-const PostCard: FC<PostCardProps> = ({ post }) => {
-    const { title, body } = post;
+const PostCard: FC<{ post: MongoPost }> = ({ post }) => {
+    const { title, desc } = post;
     return (
         <div className={styles.container}>
             <div className={styles.top}>
@@ -26,8 +26,8 @@ const PostCard: FC<PostCardProps> = ({ post }) => {
             </div>
             <div className={styles.bottom}>
                 <h1 className={styles.title}>{title}</h1>
-                <p className={styles.desc}>{body}</p>
-                <Link className={styles.link} href={`blog/${post.id}`}>
+                <p className={styles.desc}>{desc}</p>
+                <Link className={styles.link} href={`blog/${post.slug}`}>
                     Read More
                 </Link>
             </div>
