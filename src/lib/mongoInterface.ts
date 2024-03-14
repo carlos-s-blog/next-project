@@ -20,4 +20,5 @@ export interface MongoPost {
     img: string;
     userId: string;
     slug: string;
+    createdAt: Date;
 }

@@ -34,10 +34,6 @@
     @apply font-[500]
 }
 
-.avatar {
-    @apply rounded-[50%]
-}
-
 .content {
     @apply text-[20px]
 }

@@ -1,4 +1,8 @@
 .container {
+    @apply flex gap-[20px] items-center
+}
+
+.texts {
     @apply flex flex-col gap-[10px]
 }
 
@@ -8,4 +12,8 @@
 
 .username {
     @apply font-[500]
+}
+
+.avatar {
+    @apply rounded-[50%]
 }
