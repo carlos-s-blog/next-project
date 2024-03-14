@@ -1,3 +1,9 @@
+import { ConnectionStates } from 'mongoose';
+
+export interface MongoConnection {
+    isConnection: ConnectionStates;
+}
+
 export interface MongoUser {
     id: string;
     username: string;

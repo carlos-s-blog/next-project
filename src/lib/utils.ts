@@ -1,6 +1,6 @@
 import mongoose, { ConnectionStates } from 'mongoose';
 
-import { MongoConnection } from './interface';
+import { MongoConnection } from './mongoInterface';
 
 const connection: MongoConnection = {
     isConnection: ConnectionStates.disconnected,
