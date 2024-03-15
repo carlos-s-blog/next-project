@@ -121,7 +121,7 @@ module.exports = {
         '@typescript-eslint/no-unsafe-member-access': 0,
         '@typescript-eslint/no-unsafe-call': 0,
         '@typescript-eslint/no-unsafe-argument': 0,
-
+        '@typescript-eslint/unbound-method': 'off',
         /* ********************************** React and Hooks ********************************** */
         'react/jsx-uses-react': 1,
         'react/jsx-uses-vars': 1,
