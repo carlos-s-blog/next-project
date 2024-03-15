@@ -20,3 +20,9 @@ export interface SimpleBlogProps {
         slug: string;
     };
 }
+
+export interface LinksSessionProps {
+    session: {
+        user: { name: string; email: string; image: string; isAdmin: boolean };
+    };
+}
