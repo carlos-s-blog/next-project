@@ -18,7 +18,7 @@ const PostCard: FC<{ post: MongoPost }> = ({ post }) => {
                         <Image className={styles.image} src={post.img} alt="" fill priority />
                     )}
                 </div>
-                <span className={styles.data}>{createdAt.toDateString().slice(4, 16)}</span>
+                <span className={styles.data}>{createdAt.path}</span>
             </div>
             <div className={styles.bottom}>
                 <h1 className={styles.title}>{title}</h1>
