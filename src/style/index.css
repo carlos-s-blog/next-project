@@ -1,7 +1,9 @@
-/* stylelint-disable at-rule-no-unknown */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('tailwindcss/base.css');
+@import url('./tailwind/base.css');
+@import url('tailwindcss/components.css');
+@import url('./tailwind/components.css');
+@import url('tailwindcss/utilities.css');
+@import url('./tailwind/utilities.css');
 
 * {
     box-sizing: border-box;

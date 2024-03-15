@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import '@/app/index.css';
+import '@/style/index.css';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/footer/Footer';
 

@@ -1,12 +1,14 @@
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
-    content: [
-        './src/app/**/*.{ts,tsx}',
-        './src/components/**/*.{ts,tsx}',
-        './src/app/(**)/**/*.{ts,tsx}',
-        './src/**/*.{js,ts,jsx,tsx,mdx}',
-    ],
+    darkMode: 'class',
+    content: {
+        files: [
+            './src/app/**/*.{ts,tsx}',
+            './src/components/**/*.{ts,tsx}',
+            './src/lib/**/*.{ts,tsx}',
+        ],
+    },
     theme: {
         screens: {
             sm: { max: '767px' },
