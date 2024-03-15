@@ -39,9 +39,7 @@ const SimpleBlog: FC<SimpleBlogProps> = async ({ params }) => {
                     </Suspense>
                     <div className={styles.detailText}>
                         <span className={styles.detailTitle}>Date</span>
-                        <span className={styles.detailValue}>
-                            {post.createdAt.toDateString().slice(4, 16)}
-                        </span>
+                        <span className={styles.detailValue}>{post.createdAt.path}</span>
                     </div>
                 </div>
                 <div className={styles.content}>{post.desc}</div>

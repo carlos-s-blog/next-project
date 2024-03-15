@@ -8,6 +8,8 @@ import styles from './links.module.css';
 import NavLink from './navLink/NavLink';
 
 const Links: FC<LinksSessionProps> = ({ session }) => {
+    const sess = { ...session, isAdmin: false };
+
     const links = [
         {
             title: 'HomePage',
@@ -33,9 +35,9 @@ const Links: FC<LinksSessionProps> = ({ session }) => {
                 return <NavLink item={link} key={link.title} />;
             })}
             {/* 在此处判断是否登录 是否为管理员 */}
-            {session?.user ? (
+            {sess?.user ? (
                 <>
-                    {session.user?.isAdmin && <NavLink item={{ title: 'Admin', path: '/admin' }} />}
+                    {sess?.isAdmin && <NavLink item={{ title: 'Admin', path: '/admin' }} />}
                     <form action={handleGithubLogout}>
                         <button className={styles.logout}>Logout</button>
                     </form>

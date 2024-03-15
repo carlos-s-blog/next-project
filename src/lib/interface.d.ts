@@ -1,3 +1,5 @@
+import { Session } from 'next-auth';
+
 export interface PlaceholderPosts {
     id: number;
     userId: number;
@@ -22,7 +24,5 @@ export interface SimpleBlogProps {
 }
 
 export interface LinksSessionProps {
-    session: {
-        user: { name: string; email: string; image: string; isAdmin: boolean };
-    };
+    session: Session | null;
 }
