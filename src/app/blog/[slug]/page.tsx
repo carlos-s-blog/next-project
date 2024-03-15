@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-base-to-string */
 import Image from 'next/image';
 
 import { FC, Suspense } from 'react';
@@ -40,7 +41,7 @@ const SimpleBlog: FC<SimpleBlogProps> = async ({ params }) => {
                     <div className={styles.detailText}>
                         <span className={styles.detailTitle}>Date</span>
                         <span className={styles.detailValue}>
-                            {post.createdAt.toDateString().slice(4, 16)}
+                            {post.createdAt.toString().slice(4, 16)}
                         </span>
                     </div>
                 </div>
