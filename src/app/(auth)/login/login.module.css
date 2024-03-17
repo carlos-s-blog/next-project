@@ -1,0 +1,23 @@
+.container {
+    @apply flex flex-col justify-center items-center
+}
+
+.wrapper {
+    @apply w-[500px] bg-slate-800 p-[50px] flex flex-col text-center gap-[30px] rounded-[5px]
+}
+
+.github button{
+    @apply mb-[20px] p-[20px] border-none rounded-[10px] bg-orange-400 font-bold text-[15px]
+}
+
+.credentials {
+    @apply flex flex-col gap-[20px] text-center
+}
+
+.credentials input {
+    @apply p-[20px] bg-white text-black border-none rounded-[5px] font-[300] text-[20px]
+}
+
+.credentials button {
+    @apply mb-[20px] p-[20px] border-none rounded-[10px] bg-orange-400 font-bold text-[15px]
+}
