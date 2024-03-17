@@ -15,22 +15,21 @@ export const handleGithubLogout = async () => {
     await signOut();
 };
 
-export const register = async (formDate: FormData) => {
+export const register = async (pre: any, formDate: FormData) => {
     const { username, email, password, passwordRepeat, img } = Object.fromEntries(formDate);
     if (password !== passwordRepeat) {
-        return '密码不一致';
+        return { error: '密码不一致' };
     }
     try {
         connectToMongo();
         const userSchema = await User.findOne({ username });
         if (userSchema) {
-            return '用户名已存在';
+            return { error: '用户名已存在' };
         }
 
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password as string, salt);
 
-        console.log(hashedPassword);
         const newUser = new User({
             username,
             password: hashedPassword,
@@ -39,19 +38,17 @@ export const register = async (formDate: FormData) => {
         });
 
         await newUser.save();
-        console.log('save to db');
+        return { success: '注册成功' };
     } catch (error) {
-        return '注册失败';
+        return { error: '注册失败' };
     }
-    return '';
 };
 
 export const login = async (form: FormData) => {
     const { username, password } = Object.fromEntries(form);
     try {
         await signIn('credentials', { username: username as string, password: password as string });
-        return '';
     } catch (error) {
-        return { error: 'some error' };
+        throw new Error('some error');
     }
 };

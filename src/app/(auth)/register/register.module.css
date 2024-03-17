@@ -6,14 +6,3 @@
     @apply w-[500px] bg-slate-800 p-[50px] flex flex-col text-center gap-[30px] rounded-[5px]
 }
 
-.form {
-    @apply flex flex-col text-center gap-[30px]
-}
-
-.form input {
-    @apply p-[20px] bg-black text-stone-500 border-none rounded-[5px] font-[200] text-[16px]
-}
-
-.form button {
-    @apply p-[20px] cursor-pointer bg-blue-600 font-bold border-none rounded-[5px]
-}
