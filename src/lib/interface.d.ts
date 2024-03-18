@@ -1,4 +1,4 @@
-import { Session } from 'next-auth';
+import { ProjectSession } from '@/lib/auth.config';
 
 export interface PlaceholderPosts {
     id: number;
@@ -24,5 +24,5 @@ export interface SimpleBlogProps {
 }
 
 export interface LinksSessionProps {
-    session: Session | null;
+    session: ProjectSession | null;
 }

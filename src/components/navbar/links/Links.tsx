@@ -4,10 +4,12 @@ import { handleGithubLogout } from '@/lib/action';
 
 import { LinksSessionProps } from '@/lib/interface';
 
+import { ProjectSession } from '@/lib/auth.config';
+
 import styles from './links.module.css';
 import NavLink from './navLink/NavLink';
 
-const Links: FC<LinksSessionProps> = ({ session }) => {
+const Links: FC<LinksSessionProps> = ({ session }: { session: ProjectSession | null }) => {
     const links = [
         {
             title: 'HomePage',

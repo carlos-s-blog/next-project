@@ -1,3 +1,5 @@
+import * as process from 'process';
+
 import NextAuth from 'next-auth';
 import Github from 'next-auth/providers/github';
 
@@ -5,26 +7,28 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 
 import bcrypt from 'bcryptjs';
 
+import { authConfig } from '@/lib/auth.config';
+
 import { connectToMongo } from './utils';
 import { User } from './models';
 
 const login = async (credentials: Record<string, unknown>) => {
     try {
-        connectToMongo();
+        await connectToMongo();
         const user = await User.findOne({ username: credentials.username });
-        if (!user) {
-            return { error: 'not find user' };
-        }
+
+        if (!user) throw new Error('Wrong credentials!');
+
         const isPasswordCorrect = await bcrypt.compare(
             credentials.password as string,
             user.password,
         );
-        if (!isPasswordCorrect) {
-            return { error: 'wrong crendentials' };
-        }
+
+        if (!isPasswordCorrect) throw new Error('Wrong credentials!');
+
         return user;
-    } catch (error) {
-        return { error: 'wrong crendentials' };
+    } catch (err) {
+        throw new Error('Failed to login!');
     }
 };
 
@@ -34,19 +38,23 @@ export const {
     signIn,
     signOut,
 } = NextAuth({
+    ...authConfig,
     providers: [
         Github({ clientId: process.env.GITHUB_ID, clientSecret: process.env.GITHUB_SECRET }),
         CredentialsProvider({
             async authorize(credentials) {
-                const user = await login(credentials);
-                return user;
+                try {
+                    return await login(credentials);
+                } catch (error) {
+                    return null;
+                }
             },
         }),
     ],
     callbacks: {
         async signIn({ account, profile }) {
             if (account?.provider === 'github') {
-                connectToMongo();
+                await connectToMongo();
                 try {
                     const schemaUser = await User.findOne({ email: profile?.email });
                     if (!schemaUser) {
@@ -60,11 +68,11 @@ export const {
                         await newUser.save();
                     }
                 } catch (error) {
-                    console.log(error);
                     return false;
                 }
             }
             return true;
         },
+        ...authConfig.callbacks,
     },
 });

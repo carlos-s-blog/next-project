@@ -17,8 +17,8 @@ export const generateMetadata = async ({ params }: SimpleBlogProps) => {
     const post = await postApi.post(slug);
 
     return {
-        title: post.title,
-        description: post.desc,
+        title: post?.title,
+        description: post?.desc,
     };
 };
 
@@ -29,24 +29,28 @@ const SimpleBlog: FC<SimpleBlogProps> = async ({ params }) => {
 
     return (
         <div className={styles.container}>
-            <div className={styles.imageContainer}>
-                <Image src={post.img} alt="" fill className={styles.image} priority />
-            </div>
-            <div className={styles.textContainer}>
-                <h1 className={styles.title}>{post.title}</h1>
-                <div className={styles.detail}>
-                    <Suspense fallback={<div>Loading...</div>}>
-                        <PostUser userId={post.userId} />
-                    </Suspense>
-                    <div className={styles.detailText}>
-                        <span className={styles.detailTitle}>Date</span>
-                        <span className={styles.detailValue}>
-                            {post.createdAt.toString().slice(4, 16)}
-                        </span>
+            {post && (
+                <>
+                    <div className={styles.imageContainer}>
+                        <Image src={post.img} alt="" fill className={styles.image} priority />
                     </div>
-                </div>
-                <div className={styles.content}>{post.desc}</div>
-            </div>
+                    <div className={styles.textContainer}>
+                        <h1 className={styles.title}>{post.title}</h1>
+                        <div className={styles.detail}>
+                            <Suspense fallback={<div>Loading...</div>}>
+                                <PostUser userId={post.userId} />
+                            </Suspense>
+                            <div className={styles.detailText}>
+                                <span className={styles.detailTitle}>Date</span>
+                                <span className={styles.detailValue}>
+                                    {post.createdAt.toString().slice(4, 16)}
+                                </span>
+                            </div>
+                        </div>
+                        <div className={styles.content}>{post.desc}</div>
+                    </div>
+                </>
+            )}
         </div>
     );
 };

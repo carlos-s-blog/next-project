@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a473ad7-9976-4dc4-8b3e-cd8bfdf4d098" name="Changes" comment="" />
+    <list default="true" id="2a473ad7-9976-4dc4-8b3e-cd8bfdf4d098" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/lib/auth.config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/middleware.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/tailwindcss.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/blog/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/[slug]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/navbar/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navbar/Navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/navbar/links/Links.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navbar/links/Links.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/postUser/PostUser.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postUser/PostUser.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/action.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/interface.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/interface.d.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,6 +45,9 @@
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
   <component name="ProjectId" id="2dMc1beO3yFtEukzKBtCO4Vxl0I" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -37,13 +55,14 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "go.import.settings.migrated": "true",
-    "last_opened_file_path": "/Users/lishaowen/WebstormProjects/next-project/src",
+    "last_opened_file_path": "/Users/lishaowen/WebstormProjects/next-project",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.stylelint": "true",
@@ -54,7 +73,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "/Users/lishaowen/WebstormProjects/next-project/node_modules/prettier",
-    "settings.editor.selected.configurable": "configurable.tailwindcss",
+    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
     "ts.external.directory.path": "/Users/lishaowen/WebstormProjects/next-project/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -103,6 +122,9 @@
       <workItem from="1709825063826" duration="34000" />
       <workItem from="1710513536594" duration="1501000" />
       <workItem from="1710515042376" duration="1584000" />
+      <workItem from="1710765494405" duration="745000" />
+      <workItem from="1710766320335" duration="392000" />
+      <workItem from="1710766742268" duration="6729000" />
     </task>
     <servers />
   </component>

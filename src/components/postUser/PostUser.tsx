@@ -11,12 +11,12 @@ const PostUser: FC<{ userId: string }> = async ({ userId }) => {
 
     return (
         <div className={styles.container}>
-            {user.img && (
+            {user && (
                 <Image src={user.img} alt="" width={30} height={30} className={styles.avatar} />
             )}
             <div className={styles.texts}>
                 <span className={styles.title}>Author</span>
-                <span className={styles.username}>{user.username}</span>
+                <span className={styles.username}>{user?.username}</span>
             </div>
         </div>
     );

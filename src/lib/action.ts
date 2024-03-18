@@ -21,7 +21,7 @@ export const register = async (pre: any, formDate: FormData) => {
         return { error: '密码不一致' };
     }
     try {
-        connectToMongo();
+        await connectToMongo();
         const userSchema = await User.findOne({ username });
         if (userSchema) {
             return { error: '用户名已存在' };
@@ -47,13 +47,17 @@ export const register = async (pre: any, formDate: FormData) => {
 export const login = async (pre: any, form: FormData) => {
     const { username, password } = Object.fromEntries(form);
     try {
-        const res = await signIn('credentials', {
+        await signIn('credentials', {
             username: username as string,
             password: password as string,
         });
-        return res;
+        return { success: 'login success' };
     } catch (error) {
         console.log(error);
-        return { error: 'some error' };
+
+        if ((error as Error).message.includes('CredentialsSignin')) {
+            return { error: 'Invalid username or password' };
+        }
+        throw error;
     }
 };

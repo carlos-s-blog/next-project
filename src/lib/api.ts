@@ -42,20 +42,17 @@ import { connectToMongo } from './utils';
 /// mongo数据
 export const postApi = {
     posts: async (): Promise<MongoPost[]> => {
-        connectToMongo();
-        const res = await Post.find();
-        return res;
+        await connectToMongo();
+        return Post.find();
     },
 
-    post: async (slug: string): Promise<MongoPost> => {
-        connectToMongo();
-        const res = await Post.findOne({ slug });
-        return res;
+    post: async (slug: string): Promise<MongoPost | null> => {
+        await connectToMongo();
+        return Post.findOne({ slug });
     },
 
-    user: async (userId: string): Promise<MongoUser> => {
-        connectToMongo();
-        const res = await User.findById(userId);
-        return res;
+    user: async (userId: string): Promise<MongoUser | null> => {
+        await connectToMongo();
+        return User.findById(userId);
     },
 };
