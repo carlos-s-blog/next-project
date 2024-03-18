@@ -44,11 +44,16 @@ export const register = async (pre: any, formDate: FormData) => {
     }
 };
 
-export const login = async (form: FormData) => {
+export const login = async (pre: any, form: FormData) => {
     const { username, password } = Object.fromEntries(form);
     try {
-        await signIn('credentials', { username: username as string, password: password as string });
+        const res = await signIn('credentials', {
+            username: username as string,
+            password: password as string,
+        });
+        return res;
     } catch (error) {
-        throw new Error('some error');
+        console.log(error);
+        return { error: 'some error' };
     }
 };

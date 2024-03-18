@@ -1,5 +1,5 @@
 .container {
-    @apply flex flex-col justify-center items-center
+    @apply flex justify-center items-center
 }
 
 .wrapper {
@@ -7,17 +7,6 @@
 }
 
 .github button{
-    @apply mb-[20px] p-[20px] border-none rounded-[10px] bg-orange-400 font-bold text-[15px]
+    @apply w-full p-[20px] border-none rounded-[10px] bg-orange-400 font-bold text-[15px] cursor-pointer
 }
 
-.credentials {
-    @apply flex flex-col gap-[20px] text-center
-}
-
-.credentials input {
-    @apply p-[20px] bg-white text-black border-none rounded-[5px] font-[300] text-[20px]
-}
-
-.credentials button {
-    @apply mb-[20px] p-[20px] border-none rounded-[10px] bg-orange-400 font-bold text-[15px]
-}

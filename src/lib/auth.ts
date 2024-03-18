@@ -13,18 +13,18 @@ const login = async (credentials: Record<string, unknown>) => {
         connectToMongo();
         const user = await User.findOne({ username: credentials.username });
         if (!user) {
-            throw new Error('not find user');
+            return { error: 'not find user' };
         }
         const isPasswordCorrect = await bcrypt.compare(
             credentials.password as string,
             user.password,
         );
         if (!isPasswordCorrect) {
-            throw new Error('wrong crendentials');
+            return { error: 'wrong crendentials' };
         }
         return user;
     } catch (error) {
-        throw new Error('wrong crendentials');
+        return { error: 'wrong crendentials' };
     }
 };
 
@@ -38,12 +38,8 @@ export const {
         Github({ clientId: process.env.GITHUB_ID, clientSecret: process.env.GITHUB_SECRET }),
         CredentialsProvider({
             async authorize(credentials) {
-                try {
-                    const user = await login(credentials);
-                    return user;
-                } catch (error) {
-                    return null;
-                }
+                const user = await login(credentials);
+                return user;
             },
         }),
     ],
