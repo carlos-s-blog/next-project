@@ -5,16 +5,16 @@ import { FC, Suspense } from 'react';
 
 import PostUser from '@/components/postUser/PostUser';
 
-import { postApi } from '@/lib/api';
-
 import { SimpleBlogProps } from '@/lib/interface';
+
+import { findPost } from '@/lib/action';
 
 import styles from './singlePage.module.css';
 
 export const generateMetadata = async ({ params }: SimpleBlogProps) => {
     const { slug } = params;
 
-    const post = await postApi.post(slug);
+    const post = await findPost(slug);
 
     return {
         title: post?.title,
@@ -25,7 +25,7 @@ export const generateMetadata = async ({ params }: SimpleBlogProps) => {
 const SimpleBlog: FC<SimpleBlogProps> = async ({ params }) => {
     const { slug } = params;
 
-    const post = await postApi.post(slug);
+    const post = await findPost(slug);
 
     return (
         <div className={styles.container}>

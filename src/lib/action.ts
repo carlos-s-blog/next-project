@@ -2,10 +2,14 @@
 
 import bcrypt from 'bcryptjs';
 
+import { revalidatePath } from 'next/cache';
+
 import { signIn, signOut } from '@/lib/auth';
 
+import { MongoPost, MongoUser } from '@/lib/mongoInterface';
+
 import { connectToMongo } from './utils';
-import { User } from './models';
+import { Post, User } from './models';
 
 export const handleGithubLogin = async () => {
     await signIn('github');
@@ -60,4 +64,78 @@ export const login = async (pre: any, form: FormData) => {
         }
         throw error;
     }
+};
+
+/// mongo数据
+export const findPosts = async (): Promise<MongoPost[]> => {
+    await connectToMongo();
+    return Post.find();
+};
+
+export const findPost = async (slug: string): Promise<MongoPost | null> => {
+    await connectToMongo();
+    return Post.findOne({ slug });
+};
+
+export const addPost = async (prevState: any, formData: FormData) => {
+    'use server';
+
+    const { title, desc, slug, img, userId } = Object.fromEntries(formData);
+    try {
+        await connectToMongo();
+        const newPost = new Post({
+            title,
+            desc,
+            slug,
+            img,
+            userId,
+        });
+        await newPost.save();
+        return { success: '添加成功' };
+    } catch (e) {
+        return { error: '添加失败' };
+    }
+};
+
+export const deletePost = async (formData: FormData) => {
+    'use server';
+
+    const { id } = Object.fromEntries(formData);
+    console.log(id);
+    await connectToMongo();
+
+    await Post.findByIdAndDelete(id);
+};
+
+export const findUser = async (userId: string): Promise<MongoUser | null> => {
+    await connectToMongo();
+    return User.findById(userId);
+};
+
+export const findUsers = async (): Promise<MongoUser[]> => {
+    await connectToMongo();
+    return User.find();
+};
+
+export const addUser = async (prevState: any, formDate: FormData) => {
+    await connectToMongo();
+    const { username, email, password, img } = Object.fromEntries(formDate);
+    const newUser = new User({
+        username,
+        email,
+        password,
+        img,
+    });
+    await newUser.save();
+    revalidatePath('/admin');
+};
+
+export const deleteUser = async (formData: FormData) => {
+    'use server';
+
+    await connectToMongo();
+    const { id } = Object.fromEntries(formData);
+    await Post.deleteMany({ userId: id });
+    await User.findByIdAndDelete(id);
+    revalidatePath('/admin');
 };

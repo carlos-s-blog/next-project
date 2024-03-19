@@ -9,7 +9,6 @@ import styles from './navbar.module.css';
 
 const Navbar = async () => {
     const session: ProjectSession | null = (await auth()) as ProjectSession;
-    console.log('session links:', session);
     return (
         <div className={styles.container}>
             <Link href="/" className={styles.logo}>

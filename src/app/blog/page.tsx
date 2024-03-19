@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 
 import PostCard from '@/components/postCard/PostCard';
 
-import { postApi } from '@/lib/api';
+import { findPosts } from '@/lib/action';
 
 import styles from './blog.module.css';
 
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 };
 
 const Blog: FC<BlogProps> = async ({ searchParams }) => {
-    const posts = await postApi.posts();
+    const posts = await findPosts();
     return (
         <div className={styles.container}>
             {posts.map((post) => {

@@ -2,12 +2,12 @@ import { FC } from 'react';
 
 import Image from 'next/image';
 
-import { postApi } from '@/lib/api';
+import { findUser } from '@/lib/action';
 
 import styles from './postUser.module.css';
 
 const PostUser: FC<{ userId: string }> = async ({ userId }) => {
-    const user = await postApi.user(userId);
+    const user = await findUser(userId);
 
     return (
         <div className={styles.container}>
