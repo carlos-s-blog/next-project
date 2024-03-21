@@ -3,15 +3,19 @@
 }
 
 .user {
-
+    @apply mt-[20px] mb-[20px] flex items-center justify-between gap-[20px]
 }
 
 .detail {
-
+    @apply flex items-center gap-[20px]
 }
 
 .username {
 
+}
+
+.userButton {
+    @apply p-[5px] bg-blue-500 text-white rounded-[5px] border-none cursor-pointer
 }
 
 

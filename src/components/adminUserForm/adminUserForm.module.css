@@ -1,3 +1,17 @@
 .container {
+    @apply flex flex-col gap-[20px]
+}
 
+.container input,
+.container textarea,
+.container select {
+    @apply p-[20px] border-none rounded-[5px] bg-slate-500
+}
+
+.container input::placeholder {
+    @apply text-white
+}
+
+.container button {
+    @apply p-[20px] cursor-pointer bg-blue-500 border-none rounded-[5px] text-white font-bold
 }

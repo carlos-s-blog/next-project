@@ -3,7 +3,7 @@
 }
 
 .post {
-
+    @apply flex m-[20px] items-center justify-between gap-[20px]
 }
 
 .postTitle {
@@ -11,5 +11,9 @@
 }
 
 .detail {
+    @apply flex items-center gap-[20px]
+}
 
+.postButton {
+    @apply p-[5px] bg-blue-500 text-white rounded-[5px] border-none cursor-pointer
 }

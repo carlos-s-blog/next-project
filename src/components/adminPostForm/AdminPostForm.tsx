@@ -7,7 +7,7 @@ import { addPost } from '@/lib/action';
 import styles from './adminPostForm.module.css';
 
 const AdminPostForm = ({ userId }: { userId: string }) => {
-    const [state, formAction] = useFormState(addPost, undefined);
+    const [state, formAction] = useFormState(addPost, '');
 
     return (
         <form className={styles.container} action={formAction}>
@@ -18,7 +18,7 @@ const AdminPostForm = ({ userId }: { userId: string }) => {
             <input type="text" name="img" placeholder="img" />
             <textarea name="desc" placeholder="desc" rows={10} />
             <button>Add</button>
-            {state && state.error}
+            {state}
         </form>
     );
 };

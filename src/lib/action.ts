@@ -91,9 +91,9 @@ export const addPost = async (prevState: any, formData: FormData) => {
             userId,
         });
         await newPost.save();
-        return { success: '添加成功' };
+        return '添加成功';
     } catch (e) {
-        return { error: '添加失败' };
+        return '添加失败';
     }
 };
 
@@ -118,16 +118,25 @@ export const findUsers = async (): Promise<MongoUser[]> => {
 };
 
 export const addUser = async (prevState: any, formDate: FormData) => {
-    await connectToMongo();
-    const { username, email, password, img } = Object.fromEntries(formDate);
-    const newUser = new User({
-        username,
-        email,
-        password,
-        img,
-    });
-    await newUser.save();
-    revalidatePath('/admin');
+    try {
+        await connectToMongo();
+        const { username, email, password, img, isAdmin } = Object.fromEntries(formDate);
+
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password as string, salt);
+        const newUser = new User({
+            username,
+            email,
+            password: hashedPassword,
+            img,
+            isAdmin,
+        });
+        await newUser.save();
+        revalidatePath('/admin');
+        return 'add user success';
+    } catch (error) {
+        return 'add user error';
+    }
 };
 
 export const deleteUser = async (formData: FormData) => {
