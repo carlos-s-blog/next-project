@@ -1,7 +1,8 @@
-/* eslint-disable @typescript-eslint/no-base-to-string */
 import Image from 'next/image';
 
 import { FC, Suspense } from 'react';
+
+import moment from 'moment/moment';
 
 import PostUser from '@/components/postUser/PostUser';
 
@@ -43,7 +44,9 @@ const SimpleBlog: FC<SimpleBlogProps> = async ({ params }) => {
                             <div className={styles.detailText}>
                                 <span className={styles.detailTitle}>Date</span>
                                 <span className={styles.detailValue}>
-                                    {post.createdAt.toString().slice(4, 16)}
+                                    {moment(post.createdAt as unknown as string).format(
+                                        'yyyy-MM-DD',
+                                    )}
                                 </span>
                             </div>
                         </div>
